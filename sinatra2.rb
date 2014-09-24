@@ -18,10 +18,10 @@ get '/' do
 	# erb :index
 end
 
-get "/songs/new/:artist/:song" do
+get %r{/songs/(new|create)/([\w]+)/([\w]+)} do
 	p params
-	if list_of_songs.songs.size < 5
-	  list_of_songs.songs << [params[:artist], params[:song]]
+	if list_of_songs.songs.size < 3
+	  list_of_songs.songs << [params['captures'][1], params['captures'][2]]
 	  redirect to('/')
 		# " #{params[:artist]} #{params[:song]}"
 	else
