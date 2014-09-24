@@ -1,9 +1,20 @@
-<h1>
-	HOME PAGE
-</h1>
+<p>Add a new song!</p>
 
-<form>
-	<input>
-		
-	</input>
+<form action='/new' method='post'>
+  Author:
+  <input name='author'/>
+  Name:
+  <input name='name'/>
+  <input type='submit' value='Add!'/>
 </form>
+
+
+
+<h2>Here is the List of songs:</h2>
+
+<ul>	
+		<% @list_to_print.each do |song, author| %>
+		<li><%= song %> - <%= author%></li>
+	<% end %>
+
+</ul> 
